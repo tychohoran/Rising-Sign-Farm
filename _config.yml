@@ -1,5 +1,5 @@
 ---
-title: Your awesome title
+title: Rising Sign Farm
 timezone: UTC
 collections:
   posts:
@@ -8,14 +8,8 @@ collections:
   uploads:
     title: Uploads
     output: true
-email: your-email@domain.com
-description: 'Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for Google search
-  results) and in your feed.xml site description.
-
-'
+description: 'Rising Sign Farm is growing food for justice.'
+Favicon Image:
 baseurl: ''
-url: http://yourdomain.com
-twitter_username: jekyllrb
-github_username: jekyll
+url: http://risingsignfarm.com
 markdown: kramdown
