@@ -8,8 +8,8 @@ collections:
   uploads:
     title: Uploads
     output: true
-description: 'Rising Sign Farm is growing food for justice.'
-Favicon Image:
+description: Rising Sign Farm is growing food for justice.
+Favicon Image: 
 baseurl: ''
 url: http://risingsignfarm.com
 markdown: kramdown
