@@ -10,6 +10,6 @@ collections:
     output: true
 description: Rising Sign Farm is growing food for justice.
 Favicon Image: 
-baseurl: ''
+baseurl: 
 url: http://risingsignfarm.com
 markdown: kramdown
