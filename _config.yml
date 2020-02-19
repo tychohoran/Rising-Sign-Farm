@@ -1,0 +1,15 @@
+---
+title: Rising Sign Farm
+timezone: UTC
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+description: Rising Sign Farm is growing food for justice.
+Favicon Image: 
+baseurl: 
+url: http://risingsignfarm.com
+markdown: kramdown
