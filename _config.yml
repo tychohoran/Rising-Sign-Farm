@@ -9,6 +9,7 @@ collections:
     title: Uploads
     output: true
 description: Rising Sign Farm is growing food for justice.
+Site Logo: "/uploads/RisingSignFarmLogo.svg"
 Favicon Image: 
 baseurl: 
 url: http://risingsignfarm.com
