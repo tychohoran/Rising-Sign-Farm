@@ -8,7 +8,23 @@ collections:
   uploads:
     title: Uploads
     output: true
+  veggies:
+    title: Veggies
+    output: true
+defaults:
+- scope:
+    path: ''
+    type: pages
+  values:
+    layout: page
+- scope:
+    path: ''
+    type: veggies
+  values:
+    image: 
 description: Rising Sign Farm is growing food for justice.
+Background Color: "#FFCE4D"
+Site Logo: "/uploads/RisingSignFarmLogo.svg"
 Favicon Image: 
 baseurl: 
 url: http://risingsignfarm.com

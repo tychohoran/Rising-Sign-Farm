@@ -7,20 +7,19 @@
 
 // Our variables
 $base-font-family: "Frutiger", Frutiger, Arial, sans-serif;
-$base-font-size:   16px;
+$base-font-size:   17px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$spacing-unit:     30px;
+$h1-font-size: 26px;
+$h2-font-size: 22px;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$accent-color:      #2a7ae2;
+$spacing-unit:     50px;
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$text-color:       #000;
+$background-color: {{site['Background Color']}};
+$accent-color:     #F15060;
 
 // Width of the content area
 $content-width:    800px;
