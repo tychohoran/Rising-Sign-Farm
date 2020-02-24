@@ -1,0 +1,6 @@
+<div class="background">
+	{% assign sort_veggies = site.veggies | sort:"position" %}
+	{% for veggie in sort_veggies %}
+		<img src="{{veggie.image}}" alt="veggie.title" class="veggie">
+	{% endfor %}
+</div>
