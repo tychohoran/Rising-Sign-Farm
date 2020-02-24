@@ -1,7 +1,7 @@
 ---
 title: Eat!
 permalink: "/eat/"
-layout: page
 position: 2
+layout: page
 ---
 

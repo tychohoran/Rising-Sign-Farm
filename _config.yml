@@ -21,8 +21,7 @@ defaults:
     path: ''
     type: veggies
   values:
-    image:
-
+    image: 
 description: Rising Sign Farm is growing food for justice.
 Background Color: "#FFCE4D"
 Site Logo: "/uploads/RisingSignFarmLogo.svg"
