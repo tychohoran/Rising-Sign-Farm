@@ -1,7 +1,7 @@
-<a href="#" class="menu-icon">
-  {% include navigation-icon.html %}
-</a>
 <nav class="site-nav">
+  <a class="menu-icon">
+    {% include navigation-icon.html %}
+  </a>
   {% assign sorted_pages = site.pages | sort:"position" %}
   {% for link_page in sorted_pages %}
     {% if link_page.title %}

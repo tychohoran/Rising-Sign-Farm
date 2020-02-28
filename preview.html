@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<section id="intro">
+	{% include background.html %}
+</section>
+{% assign sorted_pages = site.pages | sort:"position" %}
+{% for page in sorted_pages %}
+	{% if page.title%}
+		<section id="#{{page.title | slugify}}" class="post-content">
+			<div class="post">
+			{{page.content}}
+			</div>
+		</section>
+	{% endif %}
+{% endfor %}
