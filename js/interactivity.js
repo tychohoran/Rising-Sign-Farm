@@ -51,6 +51,6 @@ $(document).ready(function(){
 	// build scene
 	var scene = new ScrollMagic.Scene({triggerElement: "#intro", duration: h/2, offset: h/2})
 					.setTween(tween)
-					.addIndicators({name: "intro animation"}) // add indicators (requires plugin)
+					// .addIndicators({name: "intro animation"}) // add indicators (requires plugin)
 					.addTo(controller);
 });
