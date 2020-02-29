@@ -31,7 +31,7 @@
         width: 55%;
         top: 22%;
         left: 23%;
-        padding:3%;
+        padding:3% 3% 4% 3%;
         @include prefix(clip-path, polygon(0.25% 3%, 99% 2%, 98.5% 95%, 2% 96%), webkit);
         overflow: scroll;
         -ms-overflow-style: none;
@@ -55,10 +55,10 @@
         background-color: $text-color;
         color: $background-color;
         line-height: 1.5;
-        max-width: 70%;
+        max-width: 75%;
         display: block;
-        margin-bottom: 0.25em;
-        padding: 2% 0 1% 0;
+        margin-bottom: 0.5em;
+        padding: 4% 0 2.5% 0;
     }
     a:hover {
         background-color: $background-color;
