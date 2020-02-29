@@ -1,26 +1,75 @@
 @include font-face("Frutiger","../fonts/FrutigerLTStd-Black", 400, normal);
 
-.coming-soon {
-    background-color: $background-color;
-    color: $text-color;
-    position:fixed;
-    left: 0;
+%absolute-reset {
+    position: absolute;
+    top: 0;
     right: 0;
     bottom: 0;
-    top: 0;
-    width: 100%;
+    left: 0;
+}
+
+.coming-soon {
+    @extend %absolute-reset;
+    background-color: $background-color;
+    color: $text-color;
+    @include value-prefix(width, fit-content, moz webkit);
     height: 100%;
-    padding: $spacing-unit;
+    margin: auto;
     @include value-prefix(display, flex, o moz webkit);
     @include prefix(flex-flow, column nowrap, o moz webkit);
     @include prefix(justify-content, center,  o moz webkit);
     @include prefix(align-items, center,  o moz webkit);
     text-align: center;
 
-    h1 {
+    #scroll-box {
+        background: url(/uploads/poster-background.jpg);
+        background-size: 100%;
+        z-index: 100;
+        text-align: center; 
+        @extend %absolute-reset;
+        height: 26%;
+        width: 55%;
+        top: 22%;
+        left: 23%;
+        padding:3%;
+        @include prefix(clip-path, polygon(0.25% 3%, 99% 2%, 98.5% 95%, 2% 96%), webkit);
+        overflow: scroll;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    img {
+        height: 100%;
+        width: auto;
+    }
+
+    h1, a {
         line-height: 1;
-        font-size: 60px;
+        font-size: 4vh;
         letter-spacing: -1px;
+    }
+    a {
+        margin: 0 auto;
+        background-color: $text-color;
+        color: $background-color;
+        line-height: 1.5;
+        max-width: 70%;
+        display: block;
+        margin-bottom: 0.25em;
+        padding: 2% 0 1% 0;
+    }
+    a:hover {
+        background-color: $background-color;
+        color: $text-color;
+    }
+    span {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        display: block;
+        font-size: 2vh;
+        line-height: 1;
     }
     h2 {
         line-height: 1.25;
@@ -69,14 +118,6 @@ body {
             opacity: 0.75;
         }
     }
-}
-
-%absolute-reset {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
 }
 %header-element {
     @include value-prefix(height, fit-content, moz webkit);
