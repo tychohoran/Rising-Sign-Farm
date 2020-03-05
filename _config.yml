@@ -8,9 +8,6 @@ collections:
   uploads:
     title: Uploads
     output: true
-  veggies:
-    title: Veggies
-    output: true
 defaults:
 - scope:
     path: ''
