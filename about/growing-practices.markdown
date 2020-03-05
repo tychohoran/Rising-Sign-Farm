@@ -2,6 +2,7 @@
 title: Growing Practices
 date: 2020-03-05 16:36:00 Z
 position: 0
+Subpages Header: 'Farming Practices:'
 ---
 
 Rising Sign practices regenerative farming, a way of farming that enhances, rather than degrades, the health of the environment. Our growing practices are above and beyond organic.
