@@ -1,4 +1,5 @@
-@include font-face("Frutiger","../fonts/FrutigerLTStd-Black", 400, normal);
+@include font-face("Frutiger","../fonts/FrutigerLTStd-Black", 900, normal);
+@include font-face("Frutiger","../fonts/FrutigerLTStd-Regular", 400, normal);
 
 %absolute-reset {
     position: absolute;
@@ -92,6 +93,7 @@ body {
     width: 100%;
     height: 100%;
     overscroll-behavior: none;
+    scroll-behavior: smooth;
 }
 
 /**
@@ -165,6 +167,7 @@ body {
     line-height: 0;
     float: right;
     clear: both;
+    pointer-events:all;
 
     .nav-icon {
         width: 2*$spacing-unit;
@@ -185,16 +188,13 @@ body {
     padding: 2*$spacing-unit 1.2*$spacing-unit 0 0;
     overflow: hidden;
     @include prefix(transition, padding 0.25s, webkit moz ms o);
+    pointer-events: none;
 
     .page-link {
+        color: white;
         float: right;
         clear: both;
-        margin-top: 12px;
-        line-height: 1.2;
-        background-color: $text-color;
-        color: white;
-        font-size: 24px;
-        padding: 5px 10px;
+        pointer-events: all;
         @include prefix(transform, translateX(180px), webkit moz ms o);
         @include prefix(transition, 0.25s, webkit moz ms o);
 
@@ -207,6 +207,16 @@ body {
     @include media-query($on-palm) {
         padding: $spacing-unit 0.85*$spacing-unit 0 0;
     }
+}
+
+.page-link {
+        font-weight: 900;
+        display: inline-block;
+        padding: 5px 10px;
+        line-height: 1.2;
+        margin-top: 12px;
+        background-color: $text-color;
+        font-size: 24px;
 }
 
 .grey-out{
@@ -230,22 +240,53 @@ body {
     height: 100%;
 }
 
+.post {
+    #intro {
+        height: 130px;
+        @include prefix(transition, height 0.25s, webkit moz ms o);
+
+
+        @include media-query($on-palm) {
+            height: 100px;
+        }
+    }
+}
+
 /**
  * Background
  */
 
 .background {
+    @extend %absolute-reset;
     overflow: hidden;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
+    overflow-x: hidden;
+    overflow-y: visible;
     z-index: -10;
-    height: fit-content;
     margin: 0 -30px;
 
     .veggie {
+        @extend %absolute-reset;
+        position:fixed;
 
+        &#eggplant {
+            left: 15.27%;
+            top: -7.53%;
+            height: 61.21%;
+            width: 59.03%;
+        }
+        &#tomato {
+            left: -6.09%;
+            top: 45.13%;
+            height: 46%;
+            width: 42.49%;
+        }
+        &#carrot {
+            left:21.66%;
+            top: 17.75%;
+            height: 91.47%;
+            width: 105.37%;
+            transform: scaleX(-1) rotate(-60deg);
+        }
     }
 }
 
@@ -264,7 +305,6 @@ body {
     padding: 0 $spacing-unit;
     z-index: 10;
     height: 100%;
-
     @include media-query($on-palm) {
         padding: 0 0.85*$spacing-unit;
     }
@@ -280,17 +320,30 @@ body {
     margin-right: auto;
 }
 
+.subpage-header {
+    display: block;
+}
+
+.subpages {
+    .page-link {
+        color: white;
+    }
+}
+
 /**
  * Posts
  */
 .post-header {
-    margin-bottom: $spacing-unit;
-}
-
-.post-title {
-    font-size: 42px;
-    letter-spacing: -1px;
-    line-height: 1;
+        background-color: $text-color;
+        color: $card-color;
+        padding: 15px 40px;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        @include value-prefix(width, fit-content, webkit moz);
+        .post-title {
+            font-weight: 900;
+        }
 }
 
 .post-content {
@@ -308,6 +361,10 @@ body {
         padding: 40px;
         margin-top: 20px;
     }
+
+    // &:nth-child(odd) {
+    //     background-color: #26B250;
+    // }
 }
 
 
