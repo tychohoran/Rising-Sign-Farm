@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: home
 ---
 
 <section id="intro">
@@ -7,10 +7,11 @@ layout: default
 </section>
 {% assign sorted_pages = site.pages | sort:"position" %}
 {% for page in sorted_pages %}
-	{% if page.title%}
-		<section id="#{{page.title | slugify}}" class="post-content">
+	{% if page.url == page.dir and page.title%}
+		<section id="{{page.title | slugify}}" class="post-content">
 			<div class="post">
 			{{page.content}}
+			{% include subpage-links.html%}
 			</div>
 		</section>
 	{% endif %}

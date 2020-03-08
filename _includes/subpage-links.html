@@ -1,0 +1,18 @@
+<p class="subpages">
+	<span class="subpage-header">
+	{% if page["Subpages Header"] %}
+		{{page["Subpages Header"]}}
+	{% else %}
+		More Information:
+	{% endif %}
+	</span>
+	{% assign page_dir = page.url | replace: ".html", "/" %}
+	{% assign sorted_pages = site.pages | sort:"position" %}
+	{% for subpage in sorted_pages %}
+		{% if subpage.title %}
+			{% if subpage.dir == page_dir and subpage.url != page.dir %}
+				<a class="page-link" href="{{subpage.url}}">{{subpage.title}}</a>
+			{% endif %}
+		{% endif %}
+	{% endfor %}
+</p>

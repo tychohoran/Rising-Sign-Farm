@@ -4,7 +4,7 @@
   </a>
   {% assign sorted_pages = site.pages | sort:"position" %}
   {% for link_page in sorted_pages %}
-    {% if link_page.title %}
+    {% if link_page.url == link_page.dir and link_page.title %}
     <a class="page-link" href="{{ link_page.url | prepend: site.baseurl }}">{{ link_page.title }}</a>
     {% endif %}
   {% endfor %}

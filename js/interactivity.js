@@ -42,6 +42,7 @@ $(document).ready(function(){
 	});
 	unevenBoxes("p");
 	unevenBoxes(".site-nav a");
+	unevenBoxes(".post-header");
 
 	var h = $(window).height();
 	console.log(h);
