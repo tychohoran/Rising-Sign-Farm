@@ -1,7 +1,7 @@
 ---
 title: Solidarity Economy
 date: 2020-03-05 16:37:00 Z
-position: 1
+position: 2
 Subpages Header: 'Economic Practices:'
 ---
 
