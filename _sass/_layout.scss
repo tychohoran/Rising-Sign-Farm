@@ -1,4 +1,4 @@
-@include font-face("Frutiger","../fonts/FrutigerLTStd-Black", 900, normal);
+@include font-face("Frutiger","../fonts/FrutigerLTStd-Bold", 900, normal);
 @include font-face("Frutiger","../fonts/FrutigerLTStd-Regular", 400, normal);
 
 %absolute-reset {
@@ -87,13 +87,15 @@
 
     }
 }
+html {
+    scroll-behavior: smooth;
+}
 body {
     position: absolute;
     background-color: $background-color;
     width: 100%;
     height: 100%;
     overscroll-behavior: none;
-    scroll-behavior: smooth;
 }
 
 /**
@@ -191,7 +193,6 @@ body {
     pointer-events: none;
 
     .page-link {
-        color: white;
         float: right;
         clear: both;
         pointer-events: all;
@@ -209,14 +210,14 @@ body {
     }
 }
 
-.page-link {
+a.page-link {
+        color: white;
         font-weight: 900;
         display: inline-block;
-        padding: 5px 10px;
+        padding: 5px 15px;
         line-height: 1.2;
         margin-top: 12px;
         background-color: $text-color;
-        font-size: 24px;
 }
 
 .grey-out{
@@ -240,52 +241,49 @@ body {
     height: 100%;
 }
 
-.post {
-    #intro {
-        height: 130px;
-        @include prefix(transition, height 0.25s, webkit moz ms o);
-
-
-        @include media-query($on-palm) {
-            height: 100px;
-        }
-    }
-}
-
 /**
  * Background
  */
 
 .background {
     @extend %absolute-reset;
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: visible;
-    z-index: -10;
-    margin: 0 -30px;
+    width: 100%;
+    position: fixed;
+    @include prefix(transform-origin, center, webkit moz);
+    z-index: -1;
 
     .veggie {
-        @extend %absolute-reset;
-        position:fixed;
+        display: block;
+        margin: 0 auto;
+        margin-top: -25vw;
+        width: 100%;
+        max-width: 800px;
 
+        &:nth-child(odd){
+            @include prefix(transform, scale(1.5) translateX(15vw) , webkit moz);
+        }
+
+        &:nth-child(even){
+            @include prefix(transform, scale(1.5) translateX(-15vw) , webkit moz);
+        }
+
+        &#rainbow-chard-1 {
+            @include prefix(transform, scale(1.6) translateX(-15vw) , webkit moz);
+        }
+        &#broccoli-1 {
+            @include prefix(transform, scale(1.4) translateX(15vw) rotate(-90deg) , webkit moz);
+        }
+        &#rainbow-chard-2 {
+            margin-top: -15vw;
+            @include prefix(transform, scale(1.5) translateX(-10vw) , webkit moz);
+        }
+        &#broccoli-2 {
+            margin-top: 10vw;
+            @include prefix(transform, scale(1.4) translateX(10vw), webkit moz);
+        }
         &#eggplant {
-            left: 15.27%;
-            top: -7.53%;
-            height: 61.21%;
-            width: 59.03%;
-        }
-        &#tomato {
-            left: -6.09%;
-            top: 45.13%;
-            height: 46%;
-            width: 42.49%;
-        }
-        &#carrot {
-            left:21.66%;
-            top: 17.75%;
-            height: 91.47%;
-            width: 105.37%;
-            transform: scaleX(-1) rotate(-60deg);
+            margin-top: -10vw;
+            @include prefix(transform, scale(-1.6, 1.6) translateX(12vw), webkit moz);
         }
     }
 }
@@ -302,12 +300,8 @@ body {
  */
 .page-content {
     background-color: transparent;
-    padding: 0 $spacing-unit;
     z-index: 10;
     height: 100%;
-    @include media-query($on-palm) {
-        padding: 0 0.85*$spacing-unit;
-    }
 }
 
 .page-heading {
@@ -315,9 +309,6 @@ body {
 }
 
 .post {
-    max-width: $content-width;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .subpage-header {
@@ -337,7 +328,6 @@ body {
         background-color: $text-color;
         color: $card-color;
         padding: 15px 40px;
-        margin-top: 20px;
         margin-left: auto;
         margin-right: auto;
         @include value-prefix(width, fit-content, webkit moz);
@@ -347,24 +337,54 @@ body {
 }
 
 .post-content {
-    margin-bottom: $spacing-unit;
     font-size: $base-font-size;
     letter-spacing: -0.5px;
+    padding: 3*$spacing-unit $spacing-unit;
+    @include media-query($on-palm) {
+        padding: 2.55*$spacing-unit 0.85*$spacing-unit;
+    }
 
     @include media-query($on-palm) {
         font-size: 0.8*$base-font-size;
         line-height: 1.375;
     }
 
+
     p {
+        max-width: $content-width;
+        margin-left: auto;
+        margin-right: auto;
         background-color: $card-color;
         padding: 40px;
         margin-top: 20px;
     }
 
-    // &:nth-child(odd) {
-    //     background-color: #26B250;
-    // }
+    > a.page-link {
+        display: block;
+        max-width: $content-width;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        @include value-prefix(width, fit-content, webkit moz);
+    }
+
+    &#csa {
+        background-color: rgba(38, 178, 80, 0.5);
+    }
+
+    &.subpage {
+        margin-top: 100px;
+        @include prefix(transition, margin-top 0.25s, webkit moz ms o);
+
+        @include media-query($on-palm) {
+            margin-top: 60px;
+        }
+    }
+
+    .post-header {
+        margin-top: 0;
+    }
 }
 
 

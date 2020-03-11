@@ -4,8 +4,9 @@
   </a>
   {% assign sorted_pages = site.pages | sort:"position" %}
   {% for link_page in sorted_pages %}
+    {% assign section_id = link_page.title | slugify | prepend: "/preview#" %}
     {% if link_page.url == link_page.dir and link_page.title %}
-    <a class="page-link" href="{{ link_page.url | prepend: site.baseurl }}">{{ link_page.title }}</a>
+    <a class="page-link" href="{{ section_id | prepend: site.url }}">{{ link_page.title }}</a>
     {% endif %}
   {% endfor %}
 </nav>
