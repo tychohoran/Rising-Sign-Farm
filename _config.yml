@@ -19,6 +19,6 @@ Background Color: "#FFCE4D"
 Menu Image: "/uploads/Fork.svg"
 Site Logo: "/uploads/Sign.svg"
 Favicon Image: 
-baseurl:
+baseurl: 
 url: http://127.0.0.1:4000
 markdown: kramdown
