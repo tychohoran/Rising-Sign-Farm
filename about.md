@@ -2,7 +2,7 @@
 title: About
 permalink: "/about/"
 position: 0
-Subpages Header: 'More Information:'
+Subpages Header: 
 layout: page
 ---
 
