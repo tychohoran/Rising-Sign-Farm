@@ -12,4 +12,4 @@ As a Rising Sign Farm CSA member, you will receive 20 weekly boxes of veggies de
 
 Being a CSA member means supporting a queer woman-owned business, investing in your local economy, reducing your climate impact, and embracing the seasonal bounty of the land with live on. 
 
-Join our CSA!
+[Join our CSA!](https://docs.google.com/forms/d/18QCL7GZFTEIg_KGLME95GGZWmc_EnTYRU5ZW2atwLSc/viewform?edit_requested=true)
