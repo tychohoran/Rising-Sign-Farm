@@ -1,6 +1,8 @@
-<div class="background">
-	{% assign sort_veggies = site.veggies | sort:"position" %}
-	{% for veggie in sort_veggies %}
-		<img src="{{veggie.image}}" id="{{veggie.title | slugify}}" alt="{{veggie.title}}" class="veggie">
-	{% endfor %}
+<div class="background" id="background">
+	<img src="/uploads/rainbow-chard-3.png" alt="Rainbow Chard" id="rainbow-chard-3" class="veggie">
+	<img src="/uploads/rainbow-chard-1.png" alt="Rainbow Chard" id="rainbow-chard-1" class="veggie">
+	<img src="/uploads/broccoli-1.png" alt="Broccoli" id="broccoli-1" class="veggie">
+	<img src="/uploads/rainbow-chard-2.png" alt="Rainbow Chard" id="rainbow-chard-2" class="veggie">
+	<img src="/uploads/broccoli-2.png" alt="Broccoli" id="broccoli-2" class="veggie">
+	<img src="/uploads/eggplant.png" alt="Eggplant" id="eggplant" class="veggie">
 </div>
