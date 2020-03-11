@@ -251,39 +251,43 @@ a.page-link {
     position: fixed;
     @include prefix(transform-origin, center, webkit moz);
     z-index: -1;
+    will-change: transform;
+    margin-top: -18vw;
 
     .veggie {
         display: block;
         margin: 0 auto;
-        margin-top: -25vw;
+        margin-top: -15vw;
         width: 100%;
         max-width: 800px;
 
         &:nth-child(odd){
-            @include prefix(transform, scale(1.5) translateX(15vw) , webkit moz);
+            @include prefix(transform, scale(1.5) translateX(17vw) , webkit moz);
         }
 
         &:nth-child(even){
-            @include prefix(transform, scale(1.5) translateX(-15vw) , webkit moz);
+            @include prefix(transform, scale(1.5) translateX(-17vw) , webkit moz);
         }
 
         &#rainbow-chard-1 {
-            @include prefix(transform, scale(1.6) translateX(-15vw) , webkit moz);
+            margin-top: -10vw;
+            @include prefix(transform, scale(1.6) translateX(-17vw) rotate(5deg), webkit moz);
         }
         &#broccoli-1 {
-            @include prefix(transform, scale(1.4) translateX(15vw) rotate(-90deg) , webkit moz);
+            margin-top: 20vh;
+            @include prefix(transform, scale(1.4) translateX(-15vw) rotate(180deg) , webkit moz);
         }
         &#rainbow-chard-2 {
-            margin-top: -15vw;
-            @include prefix(transform, scale(1.5) translateX(-10vw) , webkit moz);
+            margin-top: -20vw;
+            @include prefix(transform, scale(-1.5, 1.5) translateX(-7vw) , webkit moz);
         }
         &#broccoli-2 {
-            margin-top: 10vw;
+            margin-top: 30vw;
             @include prefix(transform, scale(1.4) translateX(10vw), webkit moz);
         }
         &#eggplant {
-            margin-top: -10vw;
-            @include prefix(transform, scale(-1.6, 1.6) translateX(12vw), webkit moz);
+            margin-top: 20vw;
+            @include prefix(transform, scale(1.6, 1.6) translateX(10vw), webkit moz);
         }
     }
 }
@@ -339,9 +343,9 @@ a.page-link {
 .post-content {
     font-size: $base-font-size;
     letter-spacing: -0.5px;
-    padding: 3*$spacing-unit $spacing-unit;
+    padding: 5*$spacing-unit $spacing-unit;
     @include media-query($on-palm) {
-        padding: 2.55*$spacing-unit 0.85*$spacing-unit;
+        padding: 3.4*$spacing-unit 0.85*$spacing-unit;
     }
 
     @include media-query($on-palm) {
@@ -357,6 +361,9 @@ a.page-link {
         background-color: $card-color;
         padding: 40px;
         margin-top: 20px;
+        @include media-query($on-palm) {
+            padding: $spacing-unit;
+        }
     }
 
     > a.page-link {
@@ -369,17 +376,13 @@ a.page-link {
         @include value-prefix(width, fit-content, webkit moz);
     }
 
-    &#csa {
-        background-color: rgba(38, 178, 80, 0.5);
-    }
+    // &#csa {
+    //     background-color: rgba(38, 178, 80, 0.5);
+    // }
 
     &.subpage {
-        margin-top: 100px;
+        margin-top: 50px;
         @include prefix(transition, margin-top 0.25s, webkit moz ms o);
-
-        @include media-query($on-palm) {
-            margin-top: 60px;
-        }
     }
 
     .post-header {
