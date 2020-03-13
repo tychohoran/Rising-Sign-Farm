@@ -1,7 +1,7 @@
 ---
 title: The Nitty Gritty
 date: 2020-03-05 16:53:00 Z
-position: 0
+position: 1
 ---
 
 We know deciding to buy all of your produce months in advance is a big deal! Our goal is to make CSA shares as accessible as possible, and to put solidarity economics into practice in order to make that happen. This requires all members to deeply consider their class background and ability to pay - check out this awesome resource from Zenger Farms to help determine what makes sense for you. Please reach out to Emma if you have questions. We are more than happy to talk it through with you!

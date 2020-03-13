@@ -1,7 +1,6 @@
 ---
-title: CSA
+title: Community Supported Agriculture
 date: 2020-03-05 16:38:00 Z
-permalink: "/csa/"
 position: 0
 Subpages Header: 'More Information:'
 ---

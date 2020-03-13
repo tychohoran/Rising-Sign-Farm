@@ -40,6 +40,13 @@ $(document).ready(function(){
 		$(".site-header").toggleClass("clicked");
 		$('object').contents().find('svg').toggleClass("clicked");
 	});
+
+	//Subpage links
+	$(".sub.page-link").click(function() {
+		$(this).parent().toggleClass("selected");
+	});
+
+	//Make boxes uneven
 	unevenBoxes("p");
 	unevenBoxes("a.page-link");
 	unevenBoxes(".post-header");
@@ -64,8 +71,6 @@ $(document).ready(function(){
 		fh = $(document).height();
 		bh = $("#background").height();
 
-    	tween.restart();
-    	scene.refresh();
-    	scene2.refresh();
+    	tween.invalidate();
     });
 });
