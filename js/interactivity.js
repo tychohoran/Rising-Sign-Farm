@@ -40,13 +40,21 @@ $(document).ready(function(){
 		$(".site-header").toggleClass("clicked");
 		$('object').contents().find('svg').toggleClass("clicked");
 	});
+
+	//Subpage links
+	$(".sub.page-link").click(function() {
+		$(this).parent().toggleClass("selected");
+	});
+
+	//Make boxes uneven
 	unevenBoxes("p");
 	unevenBoxes("a.page-link");
 	unevenBoxes(".post-header");
 
 	var h = $(window).height();
 	var fh = $(document).height();
-	console.log(fh);
+	var bh = $("#background").height();
+	console.log(bh);
 	// build tween
 	var tween = TweenMax.to("#site-title", 1, {className: "-=centered"});
 
@@ -55,6 +63,14 @@ $(document).ready(function(){
 					.setTween(tween)
 					// .addIndicators({name: "intro animation"})
 					.addTo(controller);
-	var scene2 = new ScrollMagic.Scene({triggerElement: "#intro", duration: fh, offset: h/2}).setTween( new TweenMax.to('#background', 2, { css: { transform: 'translate(0, -'+fh/3+'px)' }}))
+	var scene2 = new ScrollMagic.Scene({triggerElement: "#intro", duration: fh, offset: h/2}).setTween( new TweenMax.to('#background', 2, { css: { transform: 'translate(0, -'+1.8*bh+'px)' }}))
     				.addTo(controller);
+
+    $(window).resize(function(){
+    	h = $(window).height();
+		fh = $(document).height();
+		bh = $("#background").height();
+
+    	tween.invalidate();
+    });
 });

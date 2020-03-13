@@ -1,10 +1,10 @@
 ---
 title: Farmers Market
 date: 2020-03-05 16:39:00 Z
-position: 1
+position: 2
 ---
 
-FARMERS MARKET
+![82143901_167817444464361_2352916030408743138_n.jpeg](/uploads/82143901_167817444464361_2352916030408743138_n.jpeg)
 
 Rising Sign will be at the Columbia City farmers market every Wednesday, from 3 to 7pm, May 13th through October 14th. Come say hi!
 

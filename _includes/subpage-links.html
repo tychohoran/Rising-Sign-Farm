@@ -3,30 +3,40 @@
 {% assign dir_index = page.dir | split: "/" | compact | join: "/" | append:".html" %}
 {% assign subpages = site.pages | sort:"position" | where: "dir", page_dir %}
 
-<!-- Generate Subpage Links  -->
-{% capture subpage-links%}
+<!-- Generate Subpages  -->
+{% capture subpage-content%}
 	{% for subpage in subpages %}
+			{% assign subpage_dir = subpage.url | replace: ".html", "/" %}
+			{% assign subsubpages = site.pages | sort:"position" | where: "dir", subpage_dir %}
 			{% if subpage.dir == page_dir and subpage.url != page.dir %}
 				{% assign has-subpages = true %}
-				<a class="page-link" href="{{subpage.url}}">{{subpage.title}}</a>
+				<article id="{{subpage.title | slugify}}" class="subpage">
+					<a class="sub page-link" href="#{{subpage.title | slugify}}">{{subpage.title}}</a>
+					<section id="{{subpage.title | slugify | append:'-content'}}" class="subpage-content">
+						{{subpage.content | markdownify}}
+						{% for subsubpage in subsubpages %}
+							<div id="{{subsubpage.title | slugify}}" class="subpage">
+								<a class="sub page-link" href="#{{subsubpage.title | slugify}}">{{subsubpage.title}}</a>
+								<section id="{{subsubpage.title | slugify | append:'-content'}}" class="subpage-content">
+								{{subsubpage.content | markdownify}}
+							</div>
+						{% endfor %}
+					</section>
+				</article>
 			{% endif %}
 	{% endfor %}
 {% endcapture %}
 
 <!-- Print Subpage Section -->
 {% if has-subpages == true %}
-	<p class="subpages">
-		<span class="subpage-header">
-
-		{% if page["Subpages Header"] %}
-			{{page["Subpages Header"]}}
-		{% else %}
-			More Information:
-		{% endif %}
-
-		</span>
-		{{subpage-links}}
-	</p>
+	<div class="subpages">
+		{{subpage-content}}
+	</div>
+	{% if parent_content == "" %}
+		<section id="{{subpages[0].title | slugify}}" class="subpage-content">
+			{{subpages[0].content}}
+		</section>
+	{% endif %}
 <!-- Print Back Button -->
 {% elsif page.url != page_dir %}
 <a class="page-link" href="{{dir_index}}">Back</a>
