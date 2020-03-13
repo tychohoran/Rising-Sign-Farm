@@ -1,43 +1,42 @@
-<!-- Define Variables -->
 {% assign page_dir = page.url | replace: ".html", "/" %}
 {% assign dir_index = page.dir | split: "/" | compact | join: "/" | append:".html" %}
 {% assign subpages = site.pages | sort:"position" | where: "dir", page_dir %}
 
-<!-- Generate Subpages  -->
 {% capture subpage-content%}
 	{% for subpage in subpages %}
 			{% assign subpage_dir = subpage.url | replace: ".html", "/" %}
 			{% assign subsubpages = site.pages | sort:"position" | where: "dir", subpage_dir %}
 			{% if subpage.dir == page_dir and subpage.url != page.dir %}
 				{% assign has-subpages = true %}
-				<article id="{{subpage.title | slugify}}" class="subpage">
-					<a class="sub page-link" href="#{{subpage.title | slugify}}">{{subpage.title}}</a>
+				{% capture class %}
+					subpage
+					{% if subpage['is selected'] %}
+						selected
+					{% endif %}
+				{% endcapture %}
+
+					<article id="{{subpage.title | slugify}}" class="{{class | strip}}">
+					<a class="sub page-link" href="#{{subpage.title | slugify}}">{{subpage.title}}<span class="caret"> &#9660;</span></a>
 					<section id="{{subpage.title | slugify | append:'-content'}}" class="subpage-content">
-						{{subpage.content | markdownify}}
 						{% for subsubpage in subsubpages %}
-							<div id="{{subsubpage.title | slugify}}" class="subpage">
-								<a class="sub page-link" href="#{{subsubpage.title | slugify}}">{{subsubpage.title}}</a>
+							<div id="{{subsubpage.title | slugify}}" class="sub subpage">
+								<a class="sub page-link" href="#{{subsubpage.title | slugify}}">{{subsubpage.title}}<span class="caret"> &#9660;</span></a>
 								<section id="{{subsubpage.title | slugify | append:'-content'}}" class="subpage-content">
 								{{subsubpage.content | markdownify}}
+								</section>
 							</div>
 						{% endfor %}
+						{{subpage.content | markdownify}}
 					</section>
 				</article>
 			{% endif %}
 	{% endfor %}
 {% endcapture %}
 
-<!-- Print Subpage Section -->
 {% if has-subpages == true %}
-	<div class="subpages">
 		{{subpage-content}}
-	</div>
-	{% if parent_content == "" %}
-		<section id="{{subpages[0].title | slugify}}" class="subpage-content">
-			{{subpages[0].content}}
-		</section>
-	{% endif %}
-<!-- Print Back Button -->
+
+
 {% elsif page.url != page_dir %}
 <a class="page-link" href="{{dir_index}}">Back</a>
 {% endif %}

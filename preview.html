@@ -7,16 +7,16 @@ layout: home
 {% assign sorted_pages = site.pages | sort:"position" %}
 {% for page in sorted_pages %}
 	{% if page.url == page.dir and page.title%}
-		<section id="{{page.title | slugify}}" class="post-content">
-			<header class="post-header">
-    			<h1 class="post-title">{{ page.title }}</h1>
-  			</header>
-  			{% include subpage-links.html%}
-  			{% if page.content %}
+		<section id="{{page.title | slugify}}" class="post">
+				<header class="post-header">
+					<a href="#{{page.title | slugify}}" class="post-link">
+	    				<h1 class="post-title">{{ page.title }}<span class="caret"> &#9660;</span></h1>
+	    			</a>
+	  			</header>
+  				{% include subpage-links.html%}
+  				<div class="post-content">
 				{{page.content}}
-			{% else %}
-				<p>No content!</p>
-			{% endif %}
+				</div>
 		</section>
 	{% endif %}
 {% endfor %}

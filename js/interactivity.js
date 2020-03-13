@@ -46,6 +46,10 @@ $(document).ready(function(){
 		$(this).parent().toggleClass("selected");
 	});
 
+	$(".post-link").click(function() {
+		$(this).parent().parent().toggleClass("selected");
+	});
+
 	//Make boxes uneven
 	unevenBoxes("p");
 	unevenBoxes("a.page-link");
