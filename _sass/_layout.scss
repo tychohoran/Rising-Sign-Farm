@@ -347,9 +347,13 @@ a.page-link {
             display: none;
         }
         @include media-query($on-palm) {
+
+            .post-title {
+                width: 100%;
+            }
             font-size: (6/5)*$base-font-size;
             .caret {
-                display: inline-block;
+                display: inline;
             }
         }
 }
@@ -388,6 +392,8 @@ a.page-link {
     }
 
     p {
+        word-break: break-word;
+        hyphens: auto;
         line-height: 1.4;
         background-color: $card-color;
         padding: 40px;
