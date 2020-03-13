@@ -9,6 +9,10 @@
     left: 0;
 }
 
+span.caret {
+    font-size: 1ex;
+}
+
 .coming-soon {
     @extend %absolute-reset;
     background-color: $background-color;
@@ -49,7 +53,6 @@
     h1, a {
         line-height: 1;
         font-size: 4vh;
-        letter-spacing: -1px;
     }
     a {
         margin: 0 auto;
@@ -198,6 +201,9 @@ body {
         pointer-events: all;
         @include prefix(transform, translateX(180px), webkit moz ms o);
         @include prefix(transition, transform 0.25s, webkit moz ms o);
+        @include media-query($on-palm) {
+            font-size: 0.8*$base-font-size;
+        }
 
         @for $i from 0 to 10 {
             &:nth-child(#{$i + 1}) { transition-delay: $i * 0.05s; }
@@ -214,9 +220,9 @@ a.page-link {
         color: white;
         font-weight: 900;
         display: inline-block;
-        padding: 5px 15px;
+        padding: 10px 20px;
         line-height: 1.2;
-        margin-top: 12px;
+        margin-top: 16px;
         background-color: $text-color;
 }
 
@@ -245,14 +251,23 @@ a.page-link {
  * Background
  */
 
+.background-solid{
+        @extend %absolute-reset;
+        width: 100%;
+        position: fixed;
+        background-attachment: fixed;
+        background-color: $background-color;
+        z-index: -2;
+}
 .background {
     @extend %absolute-reset;
     width: 100%;
     position: fixed;
     @include prefix(transform-origin, center, webkit moz);
-    z-index: -1;
     will-change: transform;
     margin-top: -18vw;
+    z-index: -1;
+    mix-blend-mode: multiply;
 
     .veggie {
         display: block;
@@ -316,53 +331,81 @@ a.page-link {
  * Posts
  */
 .post-header {
-        background-color: $text-color;
-        color: $card-color;
-        padding: 15px 40px;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: (3/2)*$base-font-size;
-        @include value-prefix(width, fit-content, webkit moz);
+        @include prefix(flex, 1 0 100%, webkit moz ms o);
         .post-title {
             font-weight: 900;
+            background: $text-color;
+            color: $card-color;
+            padding: 15px 40px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: (3/2)*$base-font-size;
+            @include value-prefix(width, fit-content, webkit moz);
+        }
+
+        .caret {
+            display: none;
         }
         @include media-query($on-palm) {
             font-size: (6/5)*$base-font-size;
+            .caret {
+                display: inline-block;
+            }
         }
 }
 
-.post-content {
+.post {
     font-size: $base-font-size;
-    letter-spacing: -0.5px;
     padding: 5*$spacing-unit $spacing-unit;
-    @include media-query($on-palm) {
-        padding: 3.4*$spacing-unit 0.85*$spacing-unit;
-    }
+    max-width: $content-width;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    @include value-prefix(display, flex, webkit moz ms o);
+    @include prefix(flex-flow, row wrap, webkit moz ms o);
+    @include prefix(justify-content, center, webkit moz ms o);
 
     @include media-query($on-palm) {
         font-size: 0.8*$base-font-size;
         line-height: 1.375;
+        padding: 3.4*$spacing-unit 0.85*$spacing-unit;
+
+        &.selected {
+
+            .post-header .caret {
+                display: none;
+            }
+
+            .subpage {
+                display: inline-block;
+            }
+        }
+
     }
 
+    .post-content {
+        margin-bottom: 4*$spacing-unit;
+    }
 
     p {
-        max-width: $content-width;
-        margin-left: auto;
-        margin-right: auto;
+        line-height: 1.4;
         background-color: $card-color;
         padding: 40px;
         margin-top: 20px;
         text-align: left;
+        width: 100%;
         @include media-query($on-palm) {
             padding: $spacing-unit;
         }
 
         img {
             margin: -40px;
+            width: calc(100% + 80px);
             max-width: calc(100% + 80px);
 
             @include media-query($on-palm) {
                 padding: -$spacing-unit;
+                width: calc(100% + #{2.5*$spacing-unit});
                 max-width: calc(100% + #{2.5*$spacing-unit});
             }
         }
@@ -371,9 +414,6 @@ a.page-link {
     > a.page-link {
         display: block;
         max-width: $content-width;
-        margin-top: 20px;
-        margin-left: auto;
-        margin-right: auto;
         text-align: center;
         @include value-prefix(width, fit-content, webkit moz);
     }
@@ -382,10 +422,6 @@ a.page-link {
     //     background-color: rgba(38, 178, 80, 0.5);
     // }
 
-    &.subpage {
-        margin-top: 50px;
-        //@include prefix(transition, margin-top 0.25s, webkit moz ms o);
-    }
 
     .post-header {
         margin-top: 0;
@@ -395,14 +431,28 @@ a.page-link {
         display: block;
     }
 
-    .subpages {
-        max-width: $content-width;
-        margin: auto;
+    .subpage {
         text-align: center;
+
+        @include media-query($on-palm){
+            & {
+                display: none;
+            }
+            &.selected {
+                display: block;
+            }
+
+        }
         a.page-link {
-            background-color: transparentize($text-color, 0.75);
+            margin: 15px 5px 0 5px;
+            @include prefix(transition, background-color 0.25s, webkit moz ms o);
+            background-color: transparentize($text-color, 0.6);
             color: $card-color;
         }
+        a.page-link:hover {
+            background-color: $text-color;
+        }
+
         a.page-link .selected{
             background-color: $text-color;
             color: $card-color;
@@ -412,24 +462,56 @@ a.page-link {
             // background-color: $text-color;
             // color: $card-color;
         }
-        .subpage {
-            display: inline-block;
-            .subpage-content {
-                display: none;
-                margin-bottom: 2*$spacing-unit;
-            }
 
-            &.selected {
-                >.subpage-content {
-                    display: block;
-                }
-                >.sub.page-link {
-                    background-color: $text-color;
+        .subpage-content {
+            display: none;
+            text-align: center;
+        }
+
+        &.selected {
+
+            @include prefix(order, 99, webkit moz ms o);
+            padding-top: 4*$spacing-unit;
+
+            >.subpage-content {
+                @include value-prefix(display, flex, webkit moz ms o);
+            @include prefix(flex-flow, row wrap, webkit moz ms o);
+            @include prefix(justify-content, center, webkit moz ms o);
+            }
+            >.sub.page-link {
+                background-color: $text-color;
+                span.caret {
+                    display: none;
                 }
             }
         }
     }
 }
 
+#community-supported-agriculture {
+    padding-top: 0;
+
+
+    p:last-child, p:first-child {
+        background-color: transparent;
+        padding: 0;
+        text-align: center;
+
+        a {
+            font-size: (3/2)*$base-font-size;
+            display: inline-block;
+            color: #fff;
+            background-color: rgb(38, 178, 80);
+            font-weight: 900;
+            padding: 15px 40px;
+        }
+    }
+}
+
+#contact {
+    .caret {
+        display: none;
+    }
+}
 
 

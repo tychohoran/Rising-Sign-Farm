@@ -8,3 +8,5 @@ Subpages Header: 'Farming Practices:'
 Rising Sign practices regenerative farming, a way of farming that enhances, rather than degrades, the health of the environment. Our growing practices are above and beyond organic.
 
 We are focused on building healthy ecosystems that not only grow healthy and delicious food, but also support vast mycelial networks, sequester carbon, reduce common food system waste, and provide habitat for pollinators and other wildlife. If you have any questions, please email us.
+
+![83669116_653432635400468_2544908190954454202_n.jpeg](/uploads/83669116_653432635400468_2544908190954454202_n.jpeg)
