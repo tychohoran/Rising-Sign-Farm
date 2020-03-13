@@ -3,7 +3,7 @@ title: Community Supported Agriculture
 date: 2020-03-05 16:38:00 Z
 position: 0
 Subpages Header: 'More Information:'
-is selected: 
+is selected: true
 ---
 
 Rising Sign Farm’s CSA is a community-focused, farmer-driven model where everyone shares in the risk and the bounty of the farm. CSA members pay for a membership in the spring, and in return receive fresh produce throughout the entire growing season. This supports the farm by providing up-front income for seeds, compost, equipment, and other supplies needed to grow food. 
