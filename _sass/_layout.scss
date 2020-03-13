@@ -409,7 +409,7 @@ a.page-link {
             max-width: calc(100% + 120px);
 
             @include media-query($on-palm) {
-                padding: -$spacing-unit;
+                margin: -$spacing-unit;
                 width: calc(100% + #{2.5*$spacing-unit});
                 max-width: calc(100% + #{2.5*$spacing-unit});
             }
